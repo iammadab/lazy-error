@@ -6,17 +6,17 @@ function init(){
 	}
 }
 
-// function final(){
-// 	return function(error, req, res, next){
-// 		//Only handle lazyerror objects
-// 		if(!error.statusCode) next(error)
+function final(){
+	return function(error, req, res, next){
+		//Only handle lazyerror objects
+		if(!error.statusCode) next(error)
 
-// 		res.status(error.statusCode).json({
-// 			code: error.code,
-// 			error: error.error
-// 		})
-// 	}
-// }
+		res.status(error.statusCode).json({
+			code: error.code,
+			error: error.error
+		})
+	}
+}
 
 module.exports = {
 	init: init,
