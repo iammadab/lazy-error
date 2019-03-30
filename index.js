@@ -1,7 +1,11 @@
 function init(){
 	return function(req, res, next){
-		let errorCreator = makeErrorCreator(res)
+		let errorCreator = makeErrorCreator(res),
+		    errorSender = makeErrorSender(res)
+
 		res.createError = errorCreator
+		res.sendError = errorSender
+		
 		next()
 	}
 }
@@ -11,10 +15,7 @@ function final(){
 		//Only handle lazyerror objects
 		if(!error.statusCode) next(error)
 
-		res.status(error.statusCode).json({
-			code: error.code,
-			error: error.error
-		})
+		sendErrorResponse(res, error)
 	}
 }
 
@@ -33,4 +34,18 @@ function makeErrorCreator(res){
 		error.error = errorData
 		return error
 	}
+}
+
+function makeErrorSender(res){
+	return function sendError(){
+		let errorObj = createError(...arguments)
+		sendErrorResponse(res, errorObj)
+	}
+}
+
+function sendErrorResponse(res, error){
+	res.status(error.statusCode).json({
+		code: error.code,
+		error: error.error
+	})
 }
