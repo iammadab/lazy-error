@@ -1,6 +1,6 @@
 function init(){
 	return function(req, res, next){
-		let errorCreator = makeErrorCreator(res),
+		let errorCreator = createError,
 		    errorSender = makeErrorSender(res)
 
 		res.createError = errorCreator
@@ -26,15 +26,6 @@ module.exports = {
 
 
 //Components
-function makeErrorCreator(res){
-	return function createError(statusCode, code, errorData){
-		let error = new Error()
-		error.statusCode = statusCode || 500
-		error.code = code || "INTERNAL_SERVER_ERROR",
-		error.error = errorData
-		return error
-	}
-}
 
 function makeErrorSender(res){
 	return function sendError(){
@@ -48,4 +39,12 @@ function sendErrorResponse(res, error){
 		code: error.code,
 		error: error.error
 	})
+}
+
+function createError(statusCode, code, errorData){
+	let error = new Error()
+	error.statusCode = statusCode || 500
+	error.code = code || "INTERNAL_SERVER_ERROR",
+	error.error = errorData
+	return error
 }
