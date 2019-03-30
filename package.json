@@ -1,0 +1,17 @@
+{
+  "name": "lazy-error",
+  "version": "1.0.0",
+  "description": "properly manage express application errors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lazy-error",
+    "lazyerror",
+    "rest-error",
+    "resterror"
+  ],
+  "author": "Wisdom Ogwu (iammadab)",
+  "license": "ISC"
+}
