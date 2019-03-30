@@ -1,6 +1,6 @@
 {
   "name": "lazy-error",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "properly manage express application errors",
   "main": "index.js",
   "scripts": {
