@@ -21,7 +21,8 @@ function final(){
 
 module.exports = {
 	init: init,
-	final: final
+	final: final,
+	createError: createError
 }
 
 
