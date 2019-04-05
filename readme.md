@@ -23,9 +23,9 @@ Once added your response object (res) will get two methods
 * res.createError
 * res.sendError
 
-#### res.createError(statusCode, errorCode, errorData)
+### res.createError(statusCode, errorCode, errorData)
 
-return a restError object
+returns a restError object
 
 **statusCode** represents the HTTP standard response code e.g 403, 404, 500 e.t.c
 
@@ -35,7 +35,7 @@ return a restError object
 
 
 
-#### res.sendError(restError)  or res.sendError(statusCode, errorCode, errorData)
+### res.sendError(restError)  or res.sendError(statusCode, errorCode, errorData)
 
 Ends the response chain and send the formatted error directly to the client
 
@@ -46,7 +46,7 @@ You can pass in a **restError** object which you can create with *res.createErro
 
 
 
-#### lazyerror.createError(statusCode, errorCode, errorData)
+### lazyerror.createError(statusCode, errorCode, errorData)
 
 Sometimes you might be writing functionality where you don't have access to the response (res) object, but you want to create a restError. 
 
