@@ -29,9 +29,14 @@ module.exports = {
 //Components
 
 function makeErrorSender(res){
-	return function sendError(){
-		let errorObj = createError(...arguments)
-		sendErrorResponse(res, errorObj)
+	return function sendError(errorObj){
+		if(errorObj.type == "restError")
+			sendErrorResponse(res, errorObj)
+		
+		else{
+			let errorObjNew = createError(...arguments)
+			sendErrorResponse(res, errorObjNew)
+		}
 	}
 }
 
@@ -47,5 +52,6 @@ function createError(statusCode, code, errorData){
 	error.statusCode = statusCode || 500
 	error.code = code || "INTERNAL_SERVER_ERROR",
 	error.error = errorData
+	error.type = "restError"
 	return error
 }
