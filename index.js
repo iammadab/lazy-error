@@ -1,10 +1,7 @@
 const lazyerror = function(){
 	return function(req, res, next){
-		let errorCreator = createError,
-		    errorSender = makeErrorSender(res)
-
-		res.createError = errorCreator
-		res.sendError = errorSender
+		res.createError = createError
+		res.sendError = makeErrorSender(res)
 		
 		next()
 	}
@@ -14,8 +11,7 @@ lazyerror.createError = createError
 
 module.exports = lazyerror
 
-//Components
-
+// Helpers
 function makeErrorSender(res){
 	return function sendError(errorObj){
 		if(errorObj.type == "restError")
