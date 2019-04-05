@@ -1,4 +1,4 @@
-function init(){
+const lazyerror = function(){
 	return function(req, res, next){
 		let errorCreator = createError,
 		    errorSender = makeErrorSender(res)
@@ -10,11 +10,9 @@ function init(){
 	}
 }
 
-module.exports = {
-	init: init,
-	createError: createError
-}
+lazyerror.createError = createError
 
+module.exports = lazyerror
 
 //Components
 
