@@ -6,7 +6,7 @@ Easily manage error while building express apis
 npm install lazy-error
 ```
 
-## Api
+## API
 ```
 var lazyerror = require("lazy-error")
 ```
