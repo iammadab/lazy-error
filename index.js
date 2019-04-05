@@ -10,18 +10,8 @@ function init(){
 	}
 }
 
-function final(){
-	return function(error, req, res, next){
-		//Only handle lazyerror objects
-		if(!error.statusCode) next(error)
-
-		sendErrorResponse(res, error)
-	}
-}
-
 module.exports = {
 	init: init,
-	final: final,
 	createError: createError
 }
 
@@ -32,7 +22,7 @@ function makeErrorSender(res){
 	return function sendError(errorObj){
 		if(errorObj.type == "restError")
 			sendErrorResponse(res, errorObj)
-		
+
 		else{
 			let errorObjNew = createError(...arguments)
 			sendErrorResponse(res, errorObjNew)
