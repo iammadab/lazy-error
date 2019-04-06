@@ -1,6 +1,6 @@
 {
   "name": "lazy-error",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "properly manage express application errors",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
     "rest-error",
     "resterror"
   ],
+  "repository": "https://github.com/iammadab/lazy-error",
   "author": "Wisdom Ogwu (iammadab)",
   "license": "ISC"
 }
