@@ -1,5 +1,5 @@
 # lazy-error
-Easily manage error while building express apis
+Easily manage errors while building express apis
 
 ## Installation
 ```
@@ -29,7 +29,7 @@ returns a restError object
 
 **statusCode** represents the HTTP standard response code e.g 403, 404, 500 e.t.c
 
-**errorCode** a machine friendly code that can be used to filter errors e.g "INVALID_USER", "INTERNAL_ERROR" e.t.c
+**errorCode** a machine friendly code that can be used to differentiate errors e.g "INVALID_USER", "INTERNAL_ERROR" e.t.c
 
 **errorData** any extra data that is needed to describe the error (it could be an object)
 
