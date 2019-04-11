@@ -1,5 +1,5 @@
 # lazy-error
-Easily manage errors while building express apis
+Easily manage errors while building express APIs
 
 ## Installation
 ```
@@ -13,7 +13,7 @@ var lazyerror = require("lazy-error")
 
 ### Express Application Middleware
 ```
-//Add it as a middleware to your express application
+//Add it as  middleware to your express application
 
 app.use(lazyerror())
 ```
